@@ -1,7 +1,8 @@
 "use server";
 
-import { createUser, findUserByCredentials } from "@/db/queries";
+import { createUser, findUserByCredentials, updateInterest } from "@/db/queries";
 import { redirect } from "next/navigation";
+import { revalidatePath } from 'next/cache'
 
 async function registerUser(formData) {
     const user = Object.fromEntries(formData);

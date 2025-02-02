@@ -1,6 +1,7 @@
 import { momentsModel } from "@/models/moments-model";
 import { userModel } from "@/models/user-model";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-util";
+import mongoose from "mongoose";
 
 async function getAllMoments() {
     const allEvents = await momentsModel.find().lean();
@@ -24,20 +25,20 @@ async function findUserByCredentials(credentials) {
     return null;
 }
 
-async function updateInterest(momentId, authId) {
+async function updateInterest(eventId, authId) {
 
-    const moment = await momentsModel.findById(momentId);
+    const event = await momentsModel.findById(eventId);
 
-    if (moment) {
-        const foundUsers = moment.interested_ids.find(id => id.toString() === authId);
+    if (event) {
+        const foundUsers = event.interested_ids.find(id => id.toString() === authId);
 
         if(foundUsers) {
-            moment.interested_ids.pull(new mongoose.Types.ObjectId(authId));
+            event.interested_ids.pull(new mongoose.Types.ObjectId(authId));
         } else {
-            moment.interested_ids.push(new mongoose.Types.ObjectId(authId));
+            event.interested_ids.push(new mongoose.Types.ObjectId(authId));
         }
 
-        moment.save();
+        event.save();
     }
 
 
