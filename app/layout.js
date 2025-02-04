@@ -7,7 +7,7 @@ import AuthProvider from "./providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Momentous",
+  title: "Momentous - Home",
   description: "An Event Booking Application",
 };
 

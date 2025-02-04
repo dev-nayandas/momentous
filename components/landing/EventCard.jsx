@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import ActionButtons from "../ActionButtons";
-import EventSchemaScript from "../meta/EventSchemaScript";
+import MomentSchemaScript from "../meta/MomentSchemaScript";
 
 const EventCard = ({ moment }) => {
   return (
     <div className="overflow-hidden rounded-md bg-[#242526]">
-      <EventSchemaScript moment={moment} />
+      <MomentSchemaScript moment={moment} />
       <Image
         src={moment?.imageUrl}
         alt={moment?.name}

@@ -3,9 +3,17 @@ import { userModel } from "@/models/user-model";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-util";
 import mongoose from "mongoose";
 
-async function getAllMoments() {
-    const allEvents = await momentsModel.find().lean();
+async function getAllMoments(query) {
+    let allEvents = [];
+    if (query) {
+        const regex = new RegExp(query, "i");
+        allEvents = await momentsModel.find({ name: { $regex: regex } }).lean();
+    } else {
+        allEvents = await momentsModel.find().lean();
+    }
     return replaceMongoIdInArray(allEvents);
+
+    
 }
 
 async function getEventById(eventId) {
