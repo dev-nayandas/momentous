@@ -65,5 +65,5 @@ export {
     createUser,
     findUserByCredentials,
     updateInterest,
-    updateGoing
+    updateGoing,
 }

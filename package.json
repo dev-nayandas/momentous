@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@plaiceholder/next": "^3.0.0",
     "@tailwindcss/typography": "^0.5.16",
     "mongoose": "^8.9.5",
     "next": "14.2.22",
+    "plaiceholder": "^3.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "resend": "^4.1.2",
+    "sharp": "^0.33.5"
   },
   "devDependencies": {
     "eslint": "^8",
