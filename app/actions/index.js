@@ -13,6 +13,7 @@ async function registerUser(formData) {
 }
 
 async function performLogin(formData) {
+
     try {
         const credential = {};
         credential.email = formData.get("email");
