@@ -17,6 +17,8 @@ const LoginForm = () => {
         try {
             const formData = new FormData(event.currentTarget);
             const found = await performLogin(formData)
+            console.log(found);
+            
 
             if (found) {
                 setAuth(found);
