@@ -1,11 +1,11 @@
 import { momentsModel } from "@/models/moments-model";
 import { userModel } from "@/models/user-model";
-import dbConnect from "@/services/mongo";
+import { dbConnect } from "@/services/mongo";
 import { replaceMongoIdInArray, replaceMongoIdInObject } from "@/utils/data-util";
 import mongoose from "mongoose";
 
 async function getAllMoments(query) {
-    
+    await dbConnect();
     let allEvents = [];
     if (query) {
         const regex = new RegExp(query, "i");
