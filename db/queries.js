@@ -19,6 +19,7 @@ async function getAllMoments(query) {
 }
 
 async function getEventById(eventId) {
+    await dbConnect();
     const event = await momentsModel.findById(eventId).lean();
     return replaceMongoIdInObject(event);
 }
